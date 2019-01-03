@@ -1,0 +1,14 @@
+.container > div{
+    display: flex;
+    font-size: 1.25em;
+    border: 2px solid #0f2453;
+}
+
+html, body{
+    background-color: #0f2453;
+    margin: 10px;
+}
+
+.container > div:nth-child(10n){
+        font-size: 1em;
+}

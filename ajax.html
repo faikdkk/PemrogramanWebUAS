@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title> Pemerintah Kota Cirebon </title>
+        <link rel="shortcut icon" href="img/lambang.ico"/>
+        <link rel="stylesheet" type="text/css" href="css/ajax/basic.css">
+        <link rel="stylesheet" type="text/css" href="css/ajax/index.css">
+        <link rel="stylesheet" type="text/css" href="css/ajax/style.css">
+    </head>
+
+	
+    <body onload=ambilXMLDoc()>
+        <div class="container">
+            <div class="header"><img src="img/cirebon.jpg" alt=" " class="responsive"></div>
+            <div class="menu1"><a href="index.html"><b>BERANDA</b></a></div>
+            <div class="menu2"><a href="sejarah.html"><b>SEJARAH</b></a></div>
+            <div class="menu3"><a href="galeri.html"><b>GALERI</b></a></div>
+            <div class="menu4"><a href="hubungi.html"><b>HUBUNGI KAMI</b></a></div>
+            <div class="menu5"><a href="#"><b>AJAX</b></a></div>
+            <div class="menu6"><a href="dom.html"><b>DOM</b></a></div>
+            <div class="left1">
+                <script>
+                    var drz = buatAjax(); 
+                    var url = "xml/katalog.xml"; 
+
+                    function buatAjax(){ 
+                        if(window.XMLHttpRequest){ 
+                            return new XMLHttpRequest(); 
+                        }else if(window.ActiveXObject){ 
+                            return new ActiveXObject("Microsoft.XMLHTTP"); 
+                        } 
+                    } 
+
+                    function ambilXMLDoc(){ 
+                        drz.open("GET",url+"?sid="+Math.random(),true); 
+                        drz.onreadystatechange = prosesData; 
+                        drz.send(null); 
+                    }
+
+                    function prosesData(){ 
+                        if(drz.readyState == 4){ 
+                            var dtable = document.getElementById( 'tabel' ); 
+                            var nl = drz.responseXML.getElementsByTagName( 'CD' ); 
+                            for( var i = 0; i < nl.length; i++ ) { 
+                                var nli = nl.item( i ); 
+                                var elKECAMATAN = nli.getElementsByTagName( 'KECAMATAN' ); 
+                                var KECAMATAN = elKECAMATAN.item(0).firstChild.nodeValue;
+                                var elPOS = nli.getElementsByTagName( 'POS' ); 
+                                var POS = elPOS.item(0).firstChild.nodeValue; 
+                                var elDESA = nli.getElementsByTagName( 'DESA' ); 
+                                var DESA = elDESA.item(0).firstChild.nodeValue;
+
+                                var elTr = dtable.insertRow( -1 ); 
+                                var elKECAMATANTd = elTr.insertCell( -1 ); 
+                                elKECAMATANTd.innerHTML = KECAMATAN; 
+                                var elPOSTd = elTr.insertCell( -1 ); 
+                                elPOSTd.innerHTML = POS; 
+                                var elDESATd = elTr.insertCell( -1 ); 
+                                elDESATd.innerHTML = DESA; 
+                            } 
+                        } 
+                    }
+                </script>
+                
+                <table cellspacing="0" cellpadding="3" border=1> 
+                <tbody id="tabel"> 
+                <tr> 
+                    <th width="40%">Kecamatan</th> 
+                    <th width="30%">Kode Pos</th> 
+                    <th width="30%">Jumlah Desa</th> 
+                </tr> 
+                </tbody> 
+                </table>
+            </div>
+            <div class="footer1">
+                <a href="https://www.facebook.com/humaspemkotcirebon/" target="_blank" class="ft1"><b>FACEBOOK</b></a>
+                <a href="https://www.instagram.com/pemdakotacrb" target="_blank" class="ft1"><b>INSTAGRAM</b></a>
+                <a href="https://twitter.com/PemdaKotaCrb" target="_blank" class="ft1" style="border-right: none;"><b>TWITTER</b></a>
+            </div>
+            <div class="footer2">
+                Dinas Komunikasi Informatika dan Statistik Kota Cirebon<br>
+                Jl.Dr.Sudarsono No.40 Kel.Kesambi Kec.Kesambi 45134<br>
+                Telp. (0231) 8804620 / 209324<br>
+                Pemerintah Kota Cirebon - copyright 2011 .
+            </div>
+        </div>
+    </body>
+</html>

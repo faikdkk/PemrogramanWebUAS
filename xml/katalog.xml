@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+	<CD>
+		<KECAMATAN>Arjawinangun	</KECAMATAN>
+		<POS>45162</POS>
+		<DESA>11</DESA>
+	</CD>
+	<CD>
+		<KECAMATAN>Babakan</KECAMATAN>
+		<POS>45191</POS>
+		<DESA>14</DESA>
+	</CD>
+	<CD>
+		<KECAMATAN>Ciledug</KECAMATAN>
+		<POS>45188</POS>
+		<DESA>10</DESA>
+	</CD>
+	<CD>
+		<KECAMATAN>Depok</KECAMATAN>
+		<POS>45155</POS>
+		<DESA>12</DESA>
+	</CD>
+	<CD>
+		<KECAMATAN>Gebang</KECAMATAN>
+		<POS>45191</POS>
+		<DESA>13</DESA>
+	</CD>
+</CATALOG>
